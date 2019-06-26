@@ -28,7 +28,7 @@ provider:
   stackName: serverless-apigw-stack
   apiName: my-custom-api-gateway-${self:provider.stage}
   deploymentBucket:
-    name: aws-nikofeng-source-bucket
+    name: <bucket>
   deploymentPrefix: serverless
 
 functions:
