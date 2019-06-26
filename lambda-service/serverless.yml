@@ -1,0 +1,41 @@
+# Welcome to Serverless!
+#
+# This file is the main config file for your service.
+# It's very minimal at this point and uses default values.
+# You can always add more config options for more control.
+# We've included some commented out config examples here.
+# Just uncomment any of them to get that config option.
+#
+# For full config options, check the docs:
+#    docs.serverless.com
+#
+# Happy Coding!
+
+service: lambda-service # NOTE: update this with your service name
+#app: your-app-name
+#tenant: your-tenant-name
+
+# You can pin your service to only deploy with a specific Serverless version
+# Check out our docs for more details
+# frameworkVersion: "=X.X.X"
+
+provider:
+  name: aws
+  runtime: python3.7
+  endpointType: REGIONAL
+  apiGateway:
+    restApiId: itfkn3omsa
+    restApiRootResourceId: fppjq8
+  stage: dev
+  region: cn-northwest-1
+  stackName: serverless-lambda-stack
+  apiName: my-custom-lambda-${self:provider.stage}
+  deploymentBucket:
+    name: aws-nikofeng-source-bucket
+  deploymentPrefix: serverless
+
+functions:
+  hello:
+    handler: handler.say
+    events:
+      - http: get say
